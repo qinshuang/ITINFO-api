@@ -28,7 +28,7 @@ class DevelopmentConfig(Config):
     ENV = "DEVELOPMENT"
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-                              'mysql://root:root@127.0.0.1/itinfo'
+                              'mysql://root:123456@127.0.0.1/itinfo'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 

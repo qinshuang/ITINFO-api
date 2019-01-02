@@ -5,6 +5,12 @@
 @file: errors.py
 @time: 2018/10/15
 """
+from flask_restful import HTTPException
+
+
+class RequestParmsError(HTTPException):
+    pass
+
 
 errors = {
         'UserAlreadyExistsError': {
@@ -16,4 +22,10 @@ errors = {
             'status': 410,
             'extra': "Any extra information you want.",
         },
+        'RequestParmsError': {
+            'message': "Request Parms Error",
+            'status': 400,
+            'extra': "Any extra information you want.",
+        },
     }
+
