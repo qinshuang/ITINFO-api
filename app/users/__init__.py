@@ -8,9 +8,11 @@
 
 from flask import Blueprint
 from flask_restful import Api
-from app.errors import errors
+from app.commons.errors import errors
+from flask_marshmallow import Marshmallow
 
 users = Blueprint('users', __name__)
 api = Api(users, errors=errors)
+ma = Marshmallow(api)
 
 from . import views

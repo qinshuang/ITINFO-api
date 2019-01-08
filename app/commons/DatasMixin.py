@@ -7,7 +7,8 @@
 """
 
 from app import db
-from app.errors import RequestParmsError
+from app.commons.errors import RequestParmsError, DuplicateDataError
+from sqlalchemy.exc import IntegrityError
 
 
 class DatasMixin(object):
@@ -20,14 +21,15 @@ class DatasMixin(object):
         datas = db.session.query(self.T).all()
         return self.SCHEMA().dump(datas, many=True)
 
-    def create_many(self, datas):
-        if not datas:
+    def create_one(self, data):
+        if not data:
             raise RequestParmsError
         try:
-            for item in datas:
-                new_t = self.T(**item)
-                db.session.add(new_t)
+            new_t = self.T(**data)
+            db.session.add(new_t)
             db.session.commit()
+        except IntegrityError:
+            raise DuplicateDataError
         except BaseException as e:
             raise RequestParmsError
         return {"msg": "Create Success"}
@@ -47,3 +49,5 @@ class DatasMixin(object):
         except BaseException as e:
             raise RequestParmsError
         return {"msg": "Delete Success"}
+
+

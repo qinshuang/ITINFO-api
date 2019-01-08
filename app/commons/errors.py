@@ -11,6 +11,11 @@ from flask_restful import HTTPException
 class RequestParmsError(HTTPException):
     pass
 
+class DuplicateDataError(HTTPException):
+    pass
+
+class NoPermissionError(HTTPException):
+    pass
 
 errors = {
         'UserAlreadyExistsError': {
@@ -27,5 +32,15 @@ errors = {
             'status': 400,
             'extra': "Any extra information you want.",
         },
+        'DuplicateDataError':{
+            'message': "DuplicateDataError ",
+            'status': 400,
+            'extra': "DuplicateDataError",
+        },
+        'NoPermissionError':{
+            'message': "NoPermissionError ",
+            'status': 403,
+            'extra': "NoPermissionError",
+        }
     }
 

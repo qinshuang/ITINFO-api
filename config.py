@@ -16,7 +16,7 @@ class Config(object):
     HOST = "0.0.0.0"
     PORT = 5000
     JWT_SECRET_KEY = "1234"
-
+    SQLALCHEMY_ECHO=True
     @staticmethod
     # 此注释可表明使用类名可以直接调用该方法
     def init_app(app):

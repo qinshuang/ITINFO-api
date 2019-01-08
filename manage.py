@@ -23,6 +23,7 @@ logger = app.logger
 manager = Manager(app)
 migrate = Migrate(app, db)
 
+
 manager.add_command('showurls', ShowUrls)
 manager.add_command('db', MigrateCommand)
 
