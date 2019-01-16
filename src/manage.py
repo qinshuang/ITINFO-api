@@ -29,7 +29,7 @@ manager.add_command('db', MigrateCommand)
 
 # db models
 from app.users.models import *
-
+from app.servers.models import *
 
 # @app.before_first_request
 # def create_tables():

@@ -32,7 +32,7 @@ class DatasMixin(object):
             raise DuplicateDataError
         except BaseException as e:
             raise RequestParmsError
-        return {"msg": "Create Success"}
+        return self.SCHEMA().dump(new_t)
 
     def get_one(self, id):
         data = db.session.query(self.T).filter_by(id=id).one()

@@ -13,12 +13,13 @@ from flask_jwt_extended import jwt_required, create_access_token
 from app.commons.DatasMixin import DatasMixin
 from app.commons.decorators import roles_required
 from flask_jwt_extended import get_current_user
+
 parser = reqparse.RequestParser()
 parser.add_argument('rolename', type=str, help='rolename')
 
-
 login_parser = reqparse.RequestParser()
 login_parser.add_argument('username', type=str, help='username')
+
 
 class UserLogin(Resource):
 
@@ -34,6 +35,7 @@ class UserLogin(Resource):
             'message': 'User {} was created'.format(args['username']),
             'access_token': access_token
         }
+
 
 role_parser = reqparse.RequestParser()
 role_parser.add_argument('rolename', type=str, help='rolename')
@@ -87,7 +89,7 @@ class UserManage(Resource):
                                     "email": email,
                                     "first_name": first_name,
                                     "last_name": last_name,
-                                    "active":True,
+                                    "active": True,
                                     "password": "123456"})
 
 
