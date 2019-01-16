@@ -14,7 +14,7 @@ handlers:
     class: logging.FileHandler
     level: DEBUG
     formatter: simple
-    filename: logs/itinfo-api.log
+    filename: /var/log/itinfo/itinfo-api.log
 loggers:
   console:
     level: DEBUG

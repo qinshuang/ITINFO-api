@@ -1,0 +1,4 @@
+include *.py
+graft src
+include app/logging.yml
+prune src/migrations

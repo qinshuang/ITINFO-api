@@ -39,7 +39,7 @@ class User(db.Model):
 
     @classmethod
     def get_by_username(cls, username):
-        return db.session.query(cls).filter(cls.username==username).first()
+        return db.session.query(cls).filter(cls.username == username).first()
 
 
 # Define the Role data-model

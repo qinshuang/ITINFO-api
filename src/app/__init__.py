@@ -26,9 +26,11 @@ def create_app(config_name):
     # from .main import main as main_blueprint  # 从当前目录下面的main子目录导入main
     from .apiv1 import apiv1 as apiv1_blueprint
     from .users import users as users_blueprint
+    from .servers import servers as servers_blueprint
     # app.register_blueprint(main_blueprint)
     app.register_blueprint(apiv1_blueprint, url_prefix='/api/v1')
     app.register_blueprint(users_blueprint, url_prefix='/api/users')
+    app.register_blueprint(servers_blueprint, url_prefix='/api/servers')
 
     from .users.models import User
     from .users.serialize import UserSchema

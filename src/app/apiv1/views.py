@@ -8,7 +8,7 @@
 
 from . import api
 from flask_restful import Resource, reqparse
-from flask_jwt_extended import jwt_required,create_access_token
+from flask_jwt_extended import jwt_required, create_access_token
 
 
 class DemoView(Resource):
@@ -17,6 +17,4 @@ class DemoView(Resource):
         return {1: 1}
 
 
-
 api.add_resource(DemoView, '/demo')
-
