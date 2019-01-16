@@ -14,3 +14,15 @@ pip install -r requirements.txt
 cd src
 python manage.py runserver -host=0.0.0.0
 ```
+
+* init database
+```sh
+create database itinfo at local db
+
+python manage.py db migrade
+python manage.py db upgrade
+
+```
+
+* create user
+view postman file
